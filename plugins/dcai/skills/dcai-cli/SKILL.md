@@ -1,6 +1,6 @@
 ---
 name: dcai-cli
-description: Reach DCAI Desktop, a dive shop's own software, with the `dcai` command on the shop's computer. Covers checking the connection, listing tools, calling a tool with JSON, reading refusals, and what to do when DCAI is closed or the command is missing. Use before any other DCAI skill, or whenever the user mentions DCAI, their dive shop's customers, boat trips, courses, rentals, repairs or marketing drafts.
+description: Reach DCAI Desktop, a dive shop's own software, with the `dcai` command on the shop's computer. Covers checking the connection, listing tools, calling a tool with JSON, reading refusals, and what to do when DCAI is closed or the command is missing. Use before any other DCAI skill, or whenever the user mentions DCAI, their dive shop's customers, boat trips, dive travel, courses, rentals, repairs, bookings, waivers or marketing drafts.
 ---
 
 # The dcai command
@@ -15,7 +15,7 @@ Run:
 dcai status
 ```
 
-- `Connected to DCAI Desktop at 127.0.0.1:47830 (25 tools).` means you're ready.
+- `Connected to DCAI Desktop at 127.0.0.1:47830 (34 tools).` means you're ready.
 - `command not found`: the shop hasn't turned the command on, or this shell doesn't have it on PATH yet. Try the full path: `~/.local/bin/dcai status` on a Mac, `%LOCALAPPDATA%\DCAI\bin\dcai.cmd status` on Windows. If that's missing too, tell the user: "In DCAI, go to Settings → Agents and press **Turn on the dcai command**, then open a new terminal or restart me." Only the shop's Owner can do that, on the main computer.
 - `Can't find DCAI Desktop's agent server` or `Couldn't reach DCAI Desktop`: DCAI isn't open. Ask the user to open DCAI Desktop on this computer, then retry.
 - `The Owner has disconnected the agent`: the Owner switched agents off in Settings → Agents. Stop and tell the user.
@@ -37,7 +37,17 @@ dcai call trips_list                         # no arguments: {} is optional
 - Pass arguments as one JSON object in single quotes. Put user text in JSON strings only, never into the shell command itself. If the text has a single quote, write the JSON to a file and use `dcai call TOOL "$(cat args.json)"`.
 - Ids (`id`, `customer_id`, `trip_id`, `course_id`) come from earlier answers. Never make one up.
 - Dates are `YYYY-MM-DD` in the shop's own time zone.
-- `dcai tools` is always current. If a tool in these skills isn't listed, the shop's DCAI is older: say so and use what's there.
+- `dcai tools` is always current.
+
+## Which skill for what
+
+| The user asks about | Tools | Skill |
+| --- | --- | --- |
+| A customer: profile, certs, Gear Card, Next best sale, waiver, air cards, gift certificates, what they owe, loyalty points, old-system history | `customers_search`, `customer_get`, `due_for_refresher` | `dcai-customers` |
+| Boat trips, boats, courses | `trips_list`, `trip_manifest`, `divers_for_trip`, `boats_list`, `courses_week`, `course_get` | `dcai-trips-and-courses` |
+| Dive travel (trips away: Mexico, Bonaire…) | `travel_list`, `travel_get`, `travel_revenue` | `dcai-trips-and-courses` |
+| Emails, posts, lists, campaigns, automatic emails | `marketing_lists`, `marketing_board`, `draft_email`, `draft_post` | `dcai-marketing-drafts` |
+| Sales, stock, rentals, repairs, air cards, website bookings, phone waivers and sign-ups, staff | `sales_today`, `report_sales`, `gear_list`, `rentals_list`, `repairs_list`, `air_cards_list`, `online_bookings`, `phone_signups`, `staff_list` | `dcai-shop-day` | If a tool in these skills isn't listed, the shop's DCAI is older: say so and use what's there.
 
 ## What the key allows
 
