@@ -1,6 +1,6 @@
 ---
 name: dcai-trips-and-courses
-description: Check a dive shop's boat trips and courses in DCAI Desktop (seats left, manifests, waivers, rosters), find certified divers to fill empty seats, and book people when the key allows it. Use when the user asks what's going out, who's on a boat, how full a course is, or how to fill a trip. Needs the dcai-cli skill.
+description: Check a dive shop's boat trips, dive travel (trips away) and courses in DCAI Desktop (seats left, manifests, waivers, rosters, who's going on a travel trip), find certified divers to fill empty seats, and book people when the key allows it. Use when the user asks what's going out, who's on a boat or a travel trip, how many signed up, how full a course is, or how to fill a trip. Needs the dcai-cli skill.
 ---
 
 # Boat trips and courses
@@ -29,11 +29,32 @@ Certified adults who aren't booked on that trip, most recent visit first (30 at 
 
 See the `dcai-marketing-drafts` skill. Don't book anyone who hasn't said yes.
 
+### Boats
+
+```bash
+dcai call boats_list      # the shop's boats, capacity, and crew
+```
+
 ### Money (keys that see revenue)
 
 ```bash
 dcai call trip_revenue '{"from":"2026-11-01","to":"2026-11-30"}'
 ```
+
+## Dive travel (trips away)
+
+Dive travel is the shop's group trips away from home (a week in Cozumel, a liveaboard in the Bahamas), separate from the daily boat trips.
+
+```bash
+dcai call travel_list                       # trips not over yet, soonest first
+dcai call travel_get '{"id":"<travel trip id>"}'
+dcai call travel_revenue '{"from":"2026-01-01","to":"2026-12-31"}'   # keys that see revenue
+```
+
+- `travel_list` gives each trip's `destination`, `place`, `dates_label`, `days_until`, `spots`, `booked`, `spots_left`, and `rooms` with the travelers in each.
+- `travel_get` adds the price, deposit, final payment day (`final_due_label`) and what each traveler still owes.
+- "The trip to Mexico next week": match `destination` or `place`, and check the dates. If two trips fit, ask which.
+- To email everyone going, use the list key `travel:<travel trip id>` with `draft_email` (the `dcai-marketing-drafts` skill). It reaches the travelers who opted in to email; mention to the user if `booked` is more than the list's count, so the shop can tell the rest in person.
 
 ## Courses
 

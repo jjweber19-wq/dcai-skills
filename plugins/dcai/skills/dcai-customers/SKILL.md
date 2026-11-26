@@ -1,6 +1,6 @@
 ---
 name: dcai-customers
-description: Look up a dive shop's customers in DCAI Desktop, read their profile (certifications, gear, waiver, balance, history), explain their Next best sale, find divers due for a refresher, and add notes or customers when the key allows it. Use when the user asks about a customer, who to call or email, what to sell someone, or who hasn't been in for a while. Needs the dcai-cli skill.
+description: Look up a dive shop's customers in DCAI Desktop, read their profile (certifications, Gear Card, waiver, air cards, gift certificates, what they owe, loyalty points, history), explain their Next best sale, find divers due for a refresher, and add notes or customers when the key allows it. Use when the user asks about a customer, who to call or email, what to sell someone, or who hasn't been in for a while. Needs the dcai-cli skill.
 ---
 
 # Customers and Next best sale
@@ -22,7 +22,13 @@ The query matches a name, customer number or phone digits. Several matches: show
 dcai call customer_get '{"id":"<id from customers_search>"}'
 ```
 
-The answer has `customer` (details), `certs`, `gear` (the Gear Card: what they own, by slot), `last_purchase`, `next_best_sale`, `balance_due_cents` and `pay_status`, `loyalty_points` (when the shop uses loyalty), `guardians` and `juniors`, and `past` (sales, courses and trips brought in from the shop's old system).
+The answer has `customer` (details), `certs`, `gear` (the Gear Card: what they own, by slot), `last_purchase`, `next_best_sale`, `balance_due_cents` and `pay_status`, `loyalty_points` (when the shop uses loyalty), `guardians` and `juniors`, `past` (sales, courses and trips brought in from the shop's old system), and:
+- `waiver`: `state` and `pill` (signed, expiring, expired or none), `signed_at`, `expires_on`. Waivers last a year.
+- `air_cards`: their air and nitrox fill cards and fills left.
+- `gift_certificates`: `held` (certificates they can spend, with what's left) and `bought` (ones they bought for someone else).
+- `open_invoices`: each sale they still owe on, with the amount due.
+
+The profile note (`customer.note`) is the shop's "note for next visit".
 
 Summarize in shop words: "Advanced Open Water since 2022, owns a BCD and computer, no regulator, owes $120, last in March."
 

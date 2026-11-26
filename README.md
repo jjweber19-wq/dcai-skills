@@ -74,10 +74,12 @@ DCAI → Settings → Agents → **Your AI takes an MCP server instead** shows t
 | Skill | What it does |
 | --- | --- |
 | [dcai-cli](plugins/dcai/skills/dcai-cli) | Reach DCAI with the `dcai` command: connect, list tools, call one, read refusals |
-| [dcai-customers](plugins/dcai/skills/dcai-customers) | Find customers, read their profile and Next best sale, find who's due for a refresher |
-| [dcai-trips-and-courses](plugins/dcai/skills/dcai-trips-and-courses) | Boat trips, manifests and waivers, courses, filling empty seats |
-| [dcai-marketing-drafts](plugins/dcai/skills/dcai-marketing-drafts) | Write emails and posts into DCAI's AI drafts inbox for the shop to send |
-| [dcai-shop-day](plugins/dcai/skills/dcai-shop-day) | Sales, gear, rentals, repairs, and a morning summary |
+| [dcai-customers](plugins/dcai/skills/dcai-customers) | Find customers, read their profile (certs, Gear Card, waiver, air cards, gift certificates, what they owe) and Next best sale, find who's due for a refresher |
+| [dcai-trips-and-courses](plugins/dcai/skills/dcai-trips-and-courses) | Boat trips, boats, manifests and waivers, dive travel (who's going, one email to all of them), courses, filling empty seats |
+| [dcai-marketing-drafts](plugins/dcai/skills/dcai-marketing-drafts) | Write emails and posts into DCAI's AI drafts inbox for the shop to send; see the lists, campaigns and automatic emails |
+| [dcai-shop-day](plugins/dcai/skills/dcai-shop-day) | Sales, gear, rentals, repairs, air cards, website bookings, phone waivers and sign-ups, staff, and a morning summary |
+
+These skills need DCAI Desktop with the AG.06 tools (Nov 26, 2026 or later). An older DCAI answers with fewer tools; `dcai tools` shows what's there.
 
 ## Privacy
 
