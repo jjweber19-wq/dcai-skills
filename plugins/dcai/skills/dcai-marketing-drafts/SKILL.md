@@ -51,7 +51,7 @@ dcai call draft_post '{"text":"Saturday we head out to the wreck...","about":"Sa
 
 No customer names, phone numbers or emails in a post. The shop adds a photo and posts from DCAI (Facebook, Instagram, or Copy the words).
 
-Then tell the user: "The post is in DCAI under Marketing → AI drafts. Press **Post to Facebook** or **Post to Instagram** there to send it the way you usually do." That's the shop's usual way of posting from DCAI.
+Then tell the user: "The post is in DCAI under Marketing → AI drafts. Add a photo and press **Post to Facebook and Instagram** (or just one of them): DCAI copies the words and opens the page for you to paste and publish." That's the shop's usual way of posting from DCAI.
 
 ### Posting yourself
 
@@ -65,7 +65,7 @@ The user: *"How many people are signed up for the trip to Mexico next week? Draf
 2. `dcai call travel_get '{"id":"<id>"}'` for the facts: dates, final payment day, what's included.
 3. `dcai call draft_email '{"list_key":"travel:<id>","subject":"Cozumel next week: what to bring","body":"Hi {first_name},\n\n...","about":"Mexico trip, one week out"}'`
 4. `dcai call draft_post '{"text":"One week until Cozumel! ...","about":"Mexico trip post"}'`. No traveler names in a post.
-5. Tell the user: "Both are in DCAI → Marketing → AI drafts. Open the email and press Send; open the post and press Post to Facebook or Post to Instagram." If the user connected their social accounts to you and asked you to post, confirm the exact words and post it yourself, and keep the DCAI draft as the record.
+5. Tell the user: "Both are in DCAI → Marketing → AI drafts. Open the email and press Send; open the post and press Post to Facebook and Instagram." If the user connected their social accounts to you and asked you to post, confirm the exact words and post it yourself, and keep the DCAI draft as the record.
 
 ## The shop's voice
 
