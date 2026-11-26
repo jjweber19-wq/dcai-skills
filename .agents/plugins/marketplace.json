@@ -1,0 +1,20 @@
+{
+  "name": "dcai-skills",
+  "interface": {
+    "displayName": "DCAI Skills"
+  },
+  "plugins": [
+    {
+      "name": "dcai",
+      "source": {
+        "source": "local",
+        "path": "./plugins/dcai"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
