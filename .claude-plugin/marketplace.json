@@ -1,0 +1,16 @@
+{
+  "name": "dcai-skills",
+  "description": "Agent Skills for DCAI Desktop, dive shop software that runs on the shop's own computer.",
+  "owner": {
+    "name": "DCAI",
+    "url": "https://divecenter.ai/"
+  },
+  "plugins": [
+    {
+      "name": "dcai",
+      "source": "./plugins/dcai",
+      "description": "Use DCAI Desktop, dive shop software, from your AI: find customers and their next best sale, check boat trips and courses, and write emails and posts into DCAI for the shop to send.",
+      "version": "0.1.0"
+    }
+  ]
+}

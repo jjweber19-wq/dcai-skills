@@ -1,0 +1,18 @@
+{
+  "name": "dcai",
+  "version": "0.1.0",
+  "description": "Use DCAI Desktop, dive shop software, from your AI: find customers and their next best sale, check boat trips and courses, and write emails and posts into DCAI for the shop to send.",
+  "author": {
+    "name": "DCAI",
+    "url": "https://divecenter.ai/"
+  },
+  "homepage": "https://divecenter.ai/",
+  "repository": "https://github.com/jjweber19-wq/dcai-skills",
+  "license": "MIT",
+  "keywords": ["dcai", "dive shop", "scuba", "crm", "marketing", "boat trips"],
+  "icon": "./assets/icon.png",
+  "documentationUrl": "https://github.com/jjweber19-wq/dcai-skills#readme",
+  "supportUrl": "https://divecenter.ai/",
+  "privacyPolicyUrl": "https://divecenter.ai/privacy",
+  "termsOfServiceUrl": "https://divecenter.ai/terms"
+}

@@ -1,0 +1,56 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "dcai",
+  "version": "0.1.0",
+  "description": "Use DCAI Desktop, dive shop software, from your AI: find customers and their next best sale, check boat trips and courses, and write emails and posts into DCAI for the shop to send.",
+  "author": {
+    "name": "DCAI",
+    "url": "https://divecenter.ai/"
+  },
+  "homepage": "https://divecenter.ai/",
+  "repository": "https://github.com/jjweber19-wq/dcai-skills",
+  "license": "MIT",
+  "keywords": ["dcai", "dive shop", "scuba", "crm", "marketing", "boat trips"],
+  "extensions": {
+    "com.openai": {
+      "requires_local_executor": true,
+      "interface": {
+        "displayName": "DCAI",
+        "shortDescription": "Work with your dive shop's DCAI",
+        "longDescription": "Find customers and their next best sale, check boat trips, courses, rentals and repairs, and write emails and social posts into DCAI's AI drafts inbox, where a person at the shop reviews and sends them. DCAI Desktop runs on the shop's own computer; the dcai skill needs DCAI open there with the dcai command turned on (Settings → Agents). Nothing goes out to a customer until a person presses Send.",
+        "category": "Productivity",
+        "developerName": "DCAI",
+        "defaultPrompt": [
+          "Who's due for a refresher? Draft them a welcome-back email in DCAI.",
+          "Which boat trips this week still have seats? Draft a post for the emptiest one.",
+          "Look up Jordan in DCAI and tell me their next best sale."
+        ],
+        "websiteURL": "https://divecenter.ai/",
+        "supportURL": "https://divecenter.ai/",
+        "privacyPolicyURL": "https://divecenter.ai/privacy",
+        "termsOfServiceURL": "https://divecenter.ai/terms",
+        "logo": "./assets/icon.png",
+        "composerIcon": "./assets/icon.png",
+        "logoDark": "./assets/icon.png",
+        "composerIconDark": "./assets/icon.png",
+        "brandColor": "#0B3954",
+        "brandColorDark": "#14B8C4"
+      },
+      "review": {
+        "commerce": false,
+        "prompts": [
+          "Check that DCAI is reachable on this computer and list what you can do.",
+          "Find the customer named Jordan in DCAI and summarize their certifications and next best sale.",
+          "List this week's boat trips in DCAI with seats left.",
+          "Find certified divers not booked on the next boat trip and save a draft email to the first one in DCAI.",
+          "Save a draft Instagram post about Saturday's boat trip in DCAI's AI drafts.",
+          "Try DCAI while the app is closed and explain what the shop needs to do to continue."
+        ]
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "First release: the dcai command, customers and next best sale, boat trips and courses, the day at the shop, and drafts for email and social posts."
+      }
+    }
+  }
+}
